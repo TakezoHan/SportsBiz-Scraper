@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "description": "Sports business news sources for global benchmarking audit",
+    "target_properties": ["F1", "NBA", "NFL", "Premier League", "La Liga", "Bundesliga", "Serie A"],
+    "target_markets": ["India", "KSA", "Saudi Arabia", "UAE", "Japan"]
+  },
+  "sources": [
+    {
+      "id": "sportspro",
+      "name": "SportsPro Media",
+      "url": "https://www.sportspromedia.com/categories/sponsorship-marketing/",
+      "type": "js_heavy",
+      "why": "Industry-leading outlet for sports business deals, sponsorship activations, and market-entry coverage. Frequently reports on rights-holder expansion into emerging markets.",
+      "selectors": {
+        "article_links": "a[href*='/news/']",
+        "headline": "h1, h2.article-title",
+        "body": "div.article-body, div.entry-content"
+      }
+    },
+    {
+      "id": "sportbusiness",
+      "name": "SportBusiness",
+      "url": "https://www.sportbusiness.com/news/",
+      "type": "js_heavy",
+      "why": "Premium sports business intelligence. Covers commercial deals, event strategies, and international expansion across F1, football, NBA, and NFL.",
+      "selectors": {
+        "article_links": "a[href*='/news/']",
+        "headline": "h1, h2.entry-title",
+        "body": "div.entry-content, article"
+      }
+    },
+    {
+      "id": "frontofficesports",
+      "name": "Front Office Sports",
+      "url": "https://frontofficesports.com/",
+      "type": "js_heavy",
+      "why": "Strong coverage of US league (NBA/NFL) international business strategy, media rights, and grassroots activations. Good for tracking American sports' global push.",
+      "selectors": {
+        "article_links": "a[href*='/20']",
+        "headline": "h1, h2.post-title",
+        "body": "div.post-content, div.entry-content"
+      }
+    },
+    {
+      "id": "insideworldfootball",
+      "name": "Inside World Football",
+      "url": "https://www.insideworldfootball.com/",
+      "type": "static",
+      "why": "Covers FIFA, UEFA, and top club commercial operations globally. Excellent for tracking European football clubs' marketing activations in Asia and Middle East.",
+      "selectors": {
+        "article_links": "a[href*='/worldfootball/']",
+        "headline": "h1.entry-title, h2.entry-title",
+        "body": "div.entry-content"
+      }
+    },
+    {
+      "id": "arabianbusiness_sport",
+      "name": "Arabian Business – Sport",
+      "url": "https://www.arabianbusiness.com/industries/sport",
+      "type": "js_heavy",
+      "why": "Regional lens on KSA/UAE sports investments and activations. Captures on-the-ground marketing events, VIP hospitality, and grassroots clinics that global outlets miss.",
+      "selectors": {
+        "article_links": "a[href*='/sport/']",
+        "headline": "h1, h2.article-title",
+        "body": "div.article-body, div.article-content"
+      }
+    }
+  ]
+}
