@@ -10,6 +10,7 @@ daily audit.
 import json
 import logging
 import os
+import time
 from dataclasses import dataclass
 
 from anthropic import Anthropic
@@ -84,43 +85,62 @@ def _build_prompt(article) -> str:
     )
 
 
+MAX_RETRIES = 2
+RATE_LIMIT_DELAY = 1.0  # seconds between API calls
+
+
 def classify_article(client: Anthropic, article) -> ClassificationResult | None:
-    """Send a single article through Claude for classification."""
-    try:
-        response = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=512,
-            messages=[
-                {"role": "user", "content": _build_prompt(article)},
-            ],
-        )
+    """Send a single article through Claude for classification (with retry)."""
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            response = client.messages.create(
+                model="claude-sonnet-4-20250514",
+                max_tokens=512,
+                messages=[
+                    {"role": "user", "content": _build_prompt(article)},
+                ],
+            )
 
-        raw = response.content[0].text.strip()
+            raw = response.content[0].text.strip()
 
-        # Handle potential markdown fences in response
-        if raw.startswith("```"):
-            raw = raw.split("\n", 1)[1]
-            raw = raw.rsplit("```", 1)[0]
+            # Handle potential markdown fences in response
+            if raw.startswith("```"):
+                raw = raw.split("\n", 1)[1]
+                raw = raw.rsplit("```", 1)[0]
 
-        data = json.loads(raw)
+            data = json.loads(raw)
+            confidence = min(max(float(data.get("confidence", 0)), 0.0), 1.0)
 
-        return ClassificationResult(
-            is_activation=data.get("is_activation", False),
-            confidence=float(data.get("confidence", 0)),
-            property=data.get("property", "N/A"),
-            activity_type=data.get("activity_type", "N/A"),
-            country=data.get("country", "N/A"),
-            summary=data.get("summary", "N/A"),
-            source_url=article.url,
-            source_name=article.source_name,
-            headline=article.headline,
-        )
-    except json.JSONDecodeError as e:
-        logger.warning("Claude returned non-JSON for '%s': %s", article.headline, e)
-        return None
-    except Exception as e:
-        logger.error("Classification failed for '%s': %s", article.headline, e)
-        return None
+            return ClassificationResult(
+                is_activation=data.get("is_activation", False),
+                confidence=confidence,
+                property=data.get("property", "N/A"),
+                activity_type=data.get("activity_type", "N/A"),
+                country=data.get("country", "N/A"),
+                summary=data.get("summary", "N/A"),
+                source_url=article.url,
+                source_name=article.source_name,
+                headline=article.headline,
+            )
+        except json.JSONDecodeError as e:
+            logger.warning(
+                "Attempt %d: Claude returned non-JSON for '%s': %s",
+                attempt, article.headline, e,
+            )
+            if attempt < MAX_RETRIES:
+                time.sleep(RATE_LIMIT_DELAY * attempt)
+                continue
+            return None
+        except Exception as e:
+            logger.error(
+                "Attempt %d: Classification failed for '%s': %s",
+                attempt, article.headline, e,
+            )
+            if attempt < MAX_RETRIES:
+                time.sleep(RATE_LIMIT_DELAY * attempt)
+                continue
+            return None
+    return None
 
 
 def classify_batch(articles: list, api_key: str | None = None) -> list[ClassificationResult]:
@@ -137,11 +157,24 @@ def classify_batch(articles: list, api_key: str | None = None) -> list[Classific
     client = Anthropic(api_key=key)
     results: list[ClassificationResult] = []
 
+    consecutive_failures = 0
     for i, article in enumerate(articles, 1):
         logger.info(
             "Classifying [%d/%d]: %s", i, len(articles), article.headline[:80]
         )
         result = classify_article(client, article)
+
+        # Rate-limit between calls
+        time.sleep(RATE_LIMIT_DELAY)
+
+        if result is None:
+            consecutive_failures += 1
+            if consecutive_failures >= 5:
+                logger.error("Circuit breaker: 5 consecutive failures, aborting batch.")
+                break
+        else:
+            consecutive_failures = 0
+
         if result and result.is_activation and result.confidence >= 0.6:
             results.append(result)
             logger.info(

@@ -64,6 +64,18 @@
         "headline": "h1, h2.article-title",
         "body": "div.article-body, div.article-content"
       }
+    },
+    {
+      "id": "laliga_biz",
+      "name": "LaLiga News (Official)",
+      "url": "https://www.laliga.com/en-GB/news",
+      "type": "js_heavy",
+      "why": "Official LaLiga news feed covers international expansion, fan events, grassroots clinics, and commercial activations in target markets. Essential for tracking La Liga's push into India, KSA, Japan, and UAE.",
+      "selectors": {
+        "article_links": "a[href*='/news/']",
+        "headline": "h1, h2",
+        "body": "div.article-body, div[class*='content'], main article"
+      }
     }
   ]
 }

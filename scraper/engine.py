@@ -127,7 +127,7 @@ async def run_scraper(sources: list[dict]) -> list[Article]:
     """
     Main entry point.  Launches a headless Chromium browser, scrapes every
     source concurrently (one browser context per source), and returns
-    all extracted articles.
+    deduplicated articles.
     """
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
@@ -136,13 +136,19 @@ async def run_scraper(sources: list[dict]) -> list[Article]:
             results = await asyncio.gather(*tasks, return_exceptions=True)
 
             articles: list[Article] = []
+            seen_urls: set[str] = set()
             for result in results:
                 if isinstance(result, list):
-                    articles.extend(result)
+                    for article in result:
+                        if article.url not in seen_urls:
+                            seen_urls.add(article.url)
+                            articles.append(article)
+                        else:
+                            logger.debug("Dedup: skipping %s", article.url)
                 elif isinstance(result, Exception):
                     logger.error("Source task failed: %s", result)
 
-            logger.info("Total articles scraped: %d", len(articles))
+            logger.info("Total articles scraped: %d (after dedup)", len(articles))
             return articles
         finally:
             await browser.close()

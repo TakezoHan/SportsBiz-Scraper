@@ -14,6 +14,7 @@ import json
 import logging
 import os
 import sys
+from datetime import date
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -35,6 +36,10 @@ logging.basicConfig(
 logger = logging.getLogger("sportsbiz")
 
 
+REQUIRED_SOURCE_KEYS = {"id", "name", "url", "type", "selectors"}
+REQUIRED_SELECTOR_KEYS = {"article_links", "headline", "body"}
+
+
 def load_sources(filter_ids: list[str] | None = None) -> list[dict]:
     with open(SOURCES_PATH) as f:
         data = json.load(f)
@@ -46,6 +51,17 @@ def load_sources(filter_ids: list[str] | None = None) -> list[dict]:
     if not sources:
         logger.error("No sources matched the filter. Check --sources flag.")
         sys.exit(1)
+
+    # Validate each source has required keys
+    for src in sources:
+        missing = REQUIRED_SOURCE_KEYS - src.keys()
+        if missing:
+            logger.error("Source '%s' missing keys: %s", src.get("id", "?"), missing)
+            sys.exit(1)
+        sel_missing = REQUIRED_SELECTOR_KEYS - src["selectors"].keys()
+        if sel_missing:
+            logger.error("Source '%s' selectors missing: %s", src["id"], sel_missing)
+            sys.exit(1)
 
     return sources
 
@@ -116,7 +132,7 @@ def main():
 
     # Print a quick summary to terminal
     print("\n=== DAILY ACTIVATION AUDIT ===")
-    print(f"Date: {activations[0].source_name if activations else 'N/A'}")
+    print(f"Date: {date.today().isoformat()}")
     print(f"Activations found: {len(activations)}\n")
     for i, a in enumerate(activations, 1):
         print(f"  {i}. [{a.property}] {a.activity_type} — {a.country}")

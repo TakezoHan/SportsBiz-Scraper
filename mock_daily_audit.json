@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-02-11T09:30:00",
+  "total_activations": 6,
+  "activations": [
+    {
+      "date": "2026-02-11",
+      "property": "NBA",
+      "activity_type": "Grassroots Clinic",
+      "country": "India",
+      "summary": "The NBA announced an expansion of its Basketball Without Borders programme in Mumbai, with a week-long camp for 60 top prospects from across South Asia. The clinic features coaching from current NBA players and front-office staff, marking the league's largest grassroots investment in the Indian market to date.",
+      "source": "Front Office Sports",
+      "source_url": "https://frontofficesports.com/nba-india-bwb-camp-2026/",
+      "headline": "NBA Expands Basketball Without Borders to Mumbai With Largest-Ever India Camp",
+      "confidence": 0.95
+    },
+    {
+      "date": "2026-02-11",
+      "property": "F1",
+      "activity_type": "Fan Experience",
+      "country": "KSA",
+      "summary": "Formula 1 has unveiled its Fan Zone activation plan for the 2026 Saudi Arabian Grand Prix in Jeddah, featuring a 3-day festival with live music, simulator experiences, and driver meet-and-greets at the Corniche. The expanded fan village doubles its footprint from 2025, reflecting Saudi Arabia's Vision 2030 push to position the kingdom as a global entertainment destination.",
+      "source": "SportsPro Media",
+      "source_url": "https://www.sportspromedia.com/news/f1-jeddah-fan-zone-2026-saudi/",
+      "headline": "F1 Doubles Jeddah Fan Zone Footprint Ahead of 2026 Saudi Arabian GP",
+      "confidence": 0.97
+    },
+    {
+      "date": "2026-02-11",
+      "property": "Real Madrid",
+      "activity_type": "Marketing Activation",
+      "country": "Japan",
+      "summary": "Real Madrid has partnered with a Japanese entertainment conglomerate to launch a permanent 'Hala Madrid Experience' attraction in Tokyo's Odaiba district, combining VR match recreations with a museum of trophies. The activation targets Japan's growing football fanbase and includes a retail store carrying Japan-exclusive merchandise.",
+      "source": "SportBusiness",
+      "source_url": "https://www.sportbusiness.com/news/real-madrid-tokyo-experience-centre/",
+      "headline": "Real Madrid Opens Permanent Fan Experience Centre in Tokyo",
+      "confidence": 0.93
+    },
+    {
+      "date": "2026-02-11",
+      "property": "Manchester City",
+      "activity_type": "Grassroots Clinic",
+      "country": "India",
+      "summary": "City Football Group is expanding its City Football Schools programme to five new Indian cities including Hyderabad, Pune, and Chennai, targeting 10,000 youth participants by year-end. The coaching curriculum mirrors Manchester City's academy methodology and will be delivered by CFG-certified Indian coaches.",
+      "source": "Inside World Football",
+      "source_url": "https://www.insideworldfootball.com/worldfootball/man-city-india-football-schools-expansion/",
+      "headline": "Manchester City's Football Schools Programme Scales to Five New Indian Cities",
+      "confidence": 0.91
+    },
+    {
+      "date": "2026-02-11",
+      "property": "NFL",
+      "activity_type": "Exhibition Match",
+      "country": "UAE",
+      "summary": "The NFL has confirmed Abu Dhabi as the host for its first-ever regular season game in the Middle East, scheduled for Week 6 of the 2026 season at Zayed Sports City Stadium. The announcement follows two years of negotiations and represents the NFL's most ambitious international expansion beyond London and Germany.",
+      "source": "Arabian Business – Sport",
+      "source_url": "https://www.arabianbusiness.com/industries/sport/nfl-abu-dhabi-regular-season-game/",
+      "headline": "NFL Confirms First-Ever Regular Season Game in Abu Dhabi for 2026",
+      "confidence": 0.98
+    },
+    {
+      "date": "2026-02-11",
+      "property": "LaLiga",
+      "activity_type": "Sponsorship Launch",
+      "country": "KSA",
+      "summary": "LaLiga has signed a multi-year sponsorship deal with Saudi Tourism Authority to promote Spanish football across the Gulf region, including co-branded fan festivals during El Clasico weekends. The partnership includes grassroots coaching academies in Riyadh and Jeddah operated under the LaLiga Grassroots banner.",
+      "source": "LaLiga News (Official)",
+      "source_url": "https://www.laliga.com/en-GB/news/laliga-saudi-tourism-sponsorship/",
+      "headline": "LaLiga Signs Strategic Partnership With Saudi Tourism Authority",
+      "confidence": 0.92
+    }
+  ]
+}
