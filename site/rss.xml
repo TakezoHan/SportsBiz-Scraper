@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sofra Notes — Istanbul Restaurant Reviews</title>
+    <link>https://sofranotes.com/</link>
+    <atom:link href="https://sofranotes.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>A warm, honest field guide to eating in Istanbul — hidden gems and classics.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Apr 2026 09:00:00 +0300</lastBuildDate>
+
+    <item>
+      <title>Çiya Sofrası — The Most Important Restaurant in Istanbul</title>
+      <link>https://sofranotes.com/reviews/ciya-sofrasi.html</link>
+      <guid isPermaLink="true">https://sofranotes.com/reviews/ciya-sofrasi.html</guid>
+      <pubDate>Sun, 22 Mar 2026 09:00:00 +0300</pubDate>
+      <description>Musa Dağdeviren's Kadıköy lokanta is not a restaurant so much as a living archive of Anatolian cooking. 9.1/10.</description>
+    </item>
+
+    <item>
+      <title>Karaköy Lokantası — A Modern Istanbul Classic</title>
+      <link>https://sofranotes.com/reviews/karakoy-lokantasi.html</link>
+      <guid isPermaLink="true">https://sofranotes.com/reviews/karakoy-lokantasi.html</guid>
+      <pubDate>Wed, 28 Jan 2026 09:00:00 +0300</pubDate>
+      <description>The turquoise-tiled lunchroom that still knows exactly what it is. 8.8/10.</description>
+    </item>
+
+    <item>
+      <title>Van Kahvaltı Evi — The Eastern Breakfast Benchmark</title>
+      <link>https://sofranotes.com/reviews/van-kahvalti-evi.html</link>
+      <guid isPermaLink="true">https://sofranotes.com/reviews/van-kahvalti-evi.html</guid>
+      <pubDate>Wed, 18 Feb 2026 09:00:00 +0300</pubDate>
+      <description>The Eastern Anatolian spread that reset the city's kahvaltı standard. 8.4/10.</description>
+    </item>
+
+  </channel>
+</rss>

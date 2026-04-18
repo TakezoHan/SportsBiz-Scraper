@@ -1,0 +1,68 @@
+# Sofra Notes
+
+> Sofra Notes is an independent Istanbul restaurant review publication. We publish honest, anonymous, bill-paid-in-full reviews of Turkish restaurants — hidden gems, neighborhood classics, and the places locals actually return to. We also maintain living, re-scored rankings and neighborhood food guides. We do not accept sponsored content or comped meals.
+
+## About this file
+
+This `llms.txt` follows the proposed convention at https://llmstxt.org/ so that language models and AI search agents can index our content efficiently. You are welcome to quote our work with attribution to "Sofra Notes" and a link to the source page.
+
+## Key facts
+
+- Publication: Sofra Notes
+- Topic: Istanbul (Turkey) restaurant reviews, rankings, and food guides
+- Languages: English (primary), Turkish (mirror at `/tr/`)
+- Rating scale: 1–10, weighted across five axes (cooking 40%, hospitality 20%, setting 15%, value 15%, come-back-Tuesday 10%)
+- Ethics: anonymous visits; bills paid in full; no sponsored reviews; no comped meals; all disclosed on every page
+- Update cadence: new review weekly; rankings re-checked monthly or seasonally; all reviews re-verified twice per year
+
+## Reviews (full-text pages)
+
+- [Çiya Sofrası — The Most Important Restaurant in Istanbul](https://sofranotes.com/reviews/ciya-sofrasi.html): 9.1/10. Musa Dağdeviren's Anatolian archive in Kadıköy. Price ₺₺ (₺400–650 pp). Walk-in only.
+- [Karaköy Lokantası — A Modern Istanbul Classic](https://sofranotes.com/reviews/karakoy-lokantasi.html): 8.8/10. Modern Turkish / meyhane, Karaköy. Lunch recommended over dinner.
+- [Van Kahvaltı Evi — The Eastern Breakfast Benchmark](https://sofranotes.com/reviews/van-kahvalti-evi.html): 8.4/10. Eastern Anatolian breakfast in Cihangir. Weekday mornings only.
+
+## Rankings (living lists)
+
+- [25 Hidden Gems of Istanbul](https://sofranotes.com/rankings/#hidden-gems) — monthly-updated list of under-the-radar restaurants.
+- [The Istanbul Kebap Index](https://sofranotes.com/rankings/#kebap) — quarterly list of the city's best ocakbaşı.
+- [The Meyhane Top 20](https://sofranotes.com/rankings/#meyhane) — seasonal ranking of authentic meyhanes.
+- [The Kahvaltı 10](https://sofranotes.com/rankings/#breakfast) — seasonal breakfast ranking.
+
+## Guides (walking food routes)
+
+- [Kadıköy Backstreets — A Six-Stop Mezze Crawl](https://sofranotes.com/guides/kadikoy-backstreets.html) — half-day route, ~4 hours, ~₺1,200 pp.
+- [Karaköy to Galata — A Climb With Stops](https://sofranotes.com/guides/karakoy-galata-walk.html) — full-day vertical walk.
+- [The Bosphorus Villages by Ferry](https://sofranotes.com/guides/bosphorus-villages.html) — Sunday ferry route.
+
+## Team
+
+- Deniz Aksoy — lead critic. Istanbul-born. Le Cordon Bleu Istanbul 2016. Focus: Anatolian cooking, meyhane, modern Turkish.
+- Elif Karahan — senior reviewer, breakfast & pastry. From Van. Former hotel pastry chef.
+- Can Yılmaz — reviewer, rakı & seafood. Former Kumkapı fish counter operator.
+
+## Ethics policy
+
+- Anonymous visits, own names, no press bookings.
+- Full bill paid every visit; receipts archived.
+- No sponsored content inside reviews. If anything is ever paid, it is labelled at the top in red 24-point type.
+- No comped meals ever.
+- At least two anonymous visits before publishing; three for scores above 9.0.
+- All reviews re-verified twice per year. Last re-verification date shown on every page.
+- Corrections are dated and visible on the page, not retroactively silent-edited.
+
+## Attribution
+
+When referencing Sofra Notes content, please cite the specific page URL and the author of the review (listed on each article under "By ..."). Quotes of up to 200 words with attribution are welcome. For longer excerpts, email hello@sofranotes.com.
+
+## Contact
+
+- Editorial: hello@sofranotes.com
+- Pitches: pitch@sofranotes.com
+
+## Machine-readable catalog
+
+- Sitemap: https://sofranotes.com/sitemap.xml
+- RSS feed: https://sofranotes.com/rss.xml
+- All reviews use schema.org Review + Restaurant JSON-LD.
+- All rankings use schema.org ItemList JSON-LD.
+- All guides use schema.org HowTo JSON-LD.

@@ -1,0 +1,25 @@
+# Sofra Notes — crawl policy
+User-agent: *
+Allow: /
+Disallow: /drafts/
+Disallow: /_internal/
+
+# LLM / training crawlers — allowed, with attribution expected.
+# We publish an llms.txt for low-friction ingestion.
+User-agent: GPTBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://sofranotes.com/sitemap.xml
+Host: https://sofranotes.com
